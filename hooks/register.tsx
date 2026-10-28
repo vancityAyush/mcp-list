@@ -34,7 +34,7 @@ const parse = (out: string): McpServer[] =>
       state: STATES[m[3]],
       label: m[4].split(' — ')[0].replace(/\s*\(.*$/, ''),
       target: m[2].slice(0, 120),
-      detail: (m[4].split(' — ')[1] ?? m[4]).slice(0, 300),
+      detail: m[4].split(' — ').slice(1).join(' — ').slice(0, 400) || m[4],
     }))
     .sort((a, b) => a.name.localeCompare(b.name))
 
