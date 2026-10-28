@@ -1,14 +1,21 @@
 # mcp-list
 
-A Claude Code mod that keeps your MCP servers in view. It adds a pane beside the
-conversation listing every configured server with a coloured status dot, like the
-`/mcp` list but always on screen.
+A Claude Code mod that keeps your MCP servers and skills in view. It adds a pane beside
+the conversation with two collapsible sections.
 
-- `•` green **Connected**, yellow **Sign in**, red **Error**, grey **Off**
-- Click a server to expand its target (URL or command) and, for a server that is not
-  connected, the full error text, such as an HTTP 401 or a `LOCAL_ONLY` 403
-- **Refresh** button, or press `r` while the pane has focus
-- Re-checks every two minutes; `/mcp-list` opens the pane and refreshes it
+**MCP** (`m` toggles it)
+- Header shows `22/27 up` and how many need attention; servers that are failing or need
+  sign-in sort to the top
+- Per server: coloured dot, name, tool count, status (**Connected**, **Sign in**, **Error**, **Off**)
+- Click a server for its target (URL or command), the full error text (an HTTP 401, a
+  `LOCAL_ONLY` 403) and the names of its tools
+
+**Skills** (`s` toggles it)
+- Your own and every plugin's skills and slash commands, grouped by where they come from
+- Click a group to open it, then a skill to read its description
+
+Also: a **Refresh** button (or `r`), a re-check every two minutes, and `/mcp-list` to open the pane.
+Inspired by the MCP sidebar in `ersinkoc/claude-mods` (switchboard).
 
 ## Install
 
@@ -30,11 +37,12 @@ about 144 terminal columns; on a narrower terminal run `/mcp-list` to open it.
 ## What it can access
 
 - **Runs a command:** `claude mcp list` (the same health check `/mcp` uses). Nothing else.
+- **Reads** the session's tool and slash-command lists to count tools and list skills.
 - **Network:** none of its own. The command contacts your configured MCP servers.
 - **Reads / writes:** session state only (the server list and the selected row).
   It reads no files and writes none.
 - `claude mcp list` already redacts tokens in server targets; the mod shows what it prints,
-  cut to 120 characters for the target and 300 for an error.
+  cut to 120 characters for the target and 400 for an error.
 
 ## Develop
 

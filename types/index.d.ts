@@ -4,14 +4,21 @@ export type McpServer = {
   label: string
   target: string
   detail: string
+  tools: string[]
 }
-export type McpList = { servers: McpServer[]; isLoading: boolean; error: string }
+export type Skill = { name: string; description: string; group: string }
+export type McpList = {
+  servers: McpServer[]
+  skills: Skill[]
+  isLoading: boolean
+  error: string
+}
 
 declare module 'claude-code' {
   interface PluginState {
     'mcp-list': {
       list: Shaped<McpList>
-      selected: Shaped<string>
+      open: Shaped<string[]>
     }
   }
 }
