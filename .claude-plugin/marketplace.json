@@ -1,0 +1,6 @@
+{
+  "name": "mcp-list",
+  "owner": { "name": "vancityAyush" },
+  "description": "Claude Code mods by vancityAyush",
+  "plugins": [{ "name": "mcp-list", "source": "./" }]
+}

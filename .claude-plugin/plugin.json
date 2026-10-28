@@ -1,0 +1,11 @@
+{
+  "name": "mcp-list",
+  "version": "0.1.0",
+  "description": "A sidebar pane that lists your MCP servers with live connection status; click a server for its target and error detail.",
+  "author": { "name": "vancityAyush", "url": "https://github.com/vancityAyush" },
+  "homepage": "https://github.com/vancityAyush/mcp-list",
+  "repository": "https://github.com/vancityAyush/mcp-list",
+  "license": "MIT",
+  "keywords": ["claude-code-mod", "mcp", "status", "pane"],
+  "types": "./types/index.d.ts"
+}
